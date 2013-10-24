@@ -24,7 +24,6 @@ var options = {
 			dateFrom = new Date(dateFromValue),
 			capDate = new Date(dateFromValue).setFullYear(dateFrom.getFullYear() + maxSpan);
 
-		$rangeMenu.popup('open');
 		if(dateTo < dateFrom || dateTo > capDate ){
 			$to.val('').focus();
 		}
