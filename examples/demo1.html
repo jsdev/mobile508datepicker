@@ -1,0 +1,84 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>Patient Viewer</title>
+	<meta charset="utf-8"/>
+	<meta name="description" content=""/>
+	<meta name="HandheldFriendly" content="True"/>
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+	<meta http-equiv="cleartype" content="on"/>
+
+	<link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css"/>
+	<link rel="stylesheet" href="../css/jquery.mobile508datepicker.css"/>
+</head>
+<body>
+	<form class="range-menu">
+		<h3>Date Range <span>(up to 6 years)</span></h3>
+		<label for="filter-date-from" class="ui-input-text">From</label>
+		<input type="text" name="startDate" data-theme="b" id="filter-date-from" value="10/24/2011" readonly="" class="ui-input-text ui-body-b">
+
+		<label for="filter-date-to" class="ui-input-text">To</label>
+		<input type="text" name="endDate" data-theme="b" id="filter-date-to" value="10/24/2013" readonly="" class="ui-input-text ui-body-b">
+
+		<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+				<button type="button" class="apply-btn ui-btn-hidden" id="range-apply-btn" data-role="button" data-theme="b" data-mini="true" data-disabled="false">Apply</button>
+		</div>
+	</form>
+	<script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	<script src="../js/jquery.mobile508datepicker.js"></script>
+	<script type="text/javascript">
+		var $from = $('#filter-date-from'),
+			$to = $('#filter-date-to'),
+			$rangeMenu = $('.range-menu'),
+			$applyRange = $('#range-apply-btn'),
+			closeDatePicker = function () {
+				var dateFromValue = $from.val(),
+					dateToValue = $to.val(),
+					dateTo = new Date(dateToValue),
+					dateFrom = new Date(dateFromValue),
+					capDate = new Date(dateFromValue).setFullYear(dateFrom.getFullYear() + maxSpan);
+
+				$rangeMenu.popup('open');
+				if(dateTo < dateFrom || dateTo > capDate ){
+					$to.val('').focus();
+				}
+
+				restrictDate();
+				$applyRange.button($to.val().length > 0 ? 'enable' : 'disable');
+			},
+			restrictDate = function () {
+				var fromDate = new Date(this.$from.val()),
+					cloned = new Date(this.$from.val()).setFullYear(fromDate.getFullYear() + this.maxSpan),
+					today = new Date(),
+					upToMaxMore = cloned < today ? cloned : today,
+					fromMin = new Date().setFullYear(today.getFullYear() + this.minSpan);
+
+				$from.data().options = {
+					MIN: fromMin,
+					MAX: today
+				};
+				$to.data().options = {
+					MIN: fromDate,
+					MAX: upToMaxMore
+				};
+			},
+			activatePopup = function () {
+				$('#filter-date-from, #filter-date-to').mobile508datepicker({
+					onClose: closeDatePicker,
+					"leading-zero": true
+				});
+
+				$from.focus();
+				restrictDate();
+			};
+
+		activatePopup();
+	</script>
+</body>
+</html>

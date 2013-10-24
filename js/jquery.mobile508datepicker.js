@@ -8,7 +8,7 @@
 (function ($) {
 	"use strict";
 	$.fn.extend({
-		accessibleCalendar: function (options) {
+		mobile508datepicker: function (options) {
 			var currentDate = new Date(),
 				_defaults = {
 					MIN: new Date(new Date().setFullYear(currentDate.getFullYear() - 10)),  // years ago
