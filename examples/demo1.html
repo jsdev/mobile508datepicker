@@ -31,54 +31,9 @@
 	</form>
 	<script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+	<script src="../js/jquery.scroll.start.stop.js"></script>
 	<script src="../js/jquery.mobile508datepicker.js"></script>
-	<script type="text/javascript">
-		var $from = $('#filter-date-from'),
-			$to = $('#filter-date-to'),
-			$rangeMenu = $('.range-menu'),
-			$applyRange = $('#range-apply-btn'),
-			closeDatePicker = function () {
-				var dateFromValue = $from.val(),
-					dateToValue = $to.val(),
-					dateTo = new Date(dateToValue),
-					dateFrom = new Date(dateFromValue),
-					capDate = new Date(dateFromValue).setFullYear(dateFrom.getFullYear() + maxSpan);
+	<script src="../js/demo1.js"></script>
 
-				$rangeMenu.popup('open');
-				if(dateTo < dateFrom || dateTo > capDate ){
-					$to.val('').focus();
-				}
-
-				restrictDate();
-				$applyRange.button($to.val().length > 0 ? 'enable' : 'disable');
-			},
-			restrictDate = function () {
-				var fromDate = new Date(this.$from.val()),
-					cloned = new Date(this.$from.val()).setFullYear(fromDate.getFullYear() + this.maxSpan),
-					today = new Date(),
-					upToMaxMore = cloned < today ? cloned : today,
-					fromMin = new Date().setFullYear(today.getFullYear() + this.minSpan);
-
-				$from.data().options = {
-					MIN: fromMin,
-					MAX: today
-				};
-				$to.data().options = {
-					MIN: fromDate,
-					MAX: upToMaxMore
-				};
-			},
-			activatePopup = function () {
-				$('#filter-date-from, #filter-date-to').mobile508datepicker({
-					onClose: closeDatePicker,
-					"leading-zero": true
-				});
-
-				$from.focus();
-				restrictDate();
-			};
-
-		activatePopup();
-	</script>
 </body>
 </html>
