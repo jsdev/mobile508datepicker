@@ -1,6 +1,5 @@
 /*
 	maxSpan, minSpan could be passed in via options of a range.
-
  */
 
 var options = {
@@ -15,7 +14,6 @@ var options = {
 	minSpan = options.minSpan || -6,
 	$from = $('#filter-date-from'),
 	$to = $('#filter-date-to'),
-	$rangeMenu = $('.range-menu'),
 	$applyRange = $('#range-apply-btn'),
 	closeDatePicker = function () {
 		var dateFromValue = $from.val(),
