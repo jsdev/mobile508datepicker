@@ -15,12 +15,13 @@
 					MAX: new Date(new Date().setFullYear(currentDate.getFullYear() + 10))   // years ahead
 				},
 				defaults = null,
+				/*jshint multistr: true */
 				$el = $('<section class="datetime-picker" id="date-picker" data-role="popup" data-dismissible="false" data-overlay-theme="a"> \
-                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right cancel">Close</a> \
-                    <h1 class="ui-title" role="heading" aria-level="1" class="date">Today</h1> \
-                    <div class="columns"><b class="month"><ul></ul></b><b class="day"><ul></ul></b><b class="year"><ul></ul></b></div> \
-                    <button id="set-btn" data-theme="b" class="ui-btn-hidden" data-disabled="false">SET</button> \
-                    </section>'),
+					<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right cancel">Close</a> \
+					<h1 class="ui-title" role="heading" aria-level="1" class="date">Today</h1> \
+					<div class="columns"><b class="month"><ul></ul></b><b class="day"><ul></ul></b><b class="year"><ul></ul></b></div> \
+					<button id="set-btn" data-theme="b" class="ui-btn-hidden" data-disabled="false">SET</button> \
+					</section>'),
 				buildEl = function () {
 					$('body').append($el);
 					$el.trigger('create');
@@ -34,7 +35,7 @@
 						year: d.getFullYear(),
 						month: d.getMonth(),
 						day: d.getDate()
-					}
+					};
 				},
 				toggleButtons = function (y, m, $d, $m, className) {
 					var $disabled = $el.find('.' + className + ':disabled');
@@ -397,7 +398,7 @@
 					if (e.which === 27) {
 						close();
 					}
-				})
+				});
 
 			//Iterate over the current set of matched elements
 			return this.each(function () {
@@ -419,7 +420,7 @@
 					.on('keydown', function (e) {
 						var EnterOrNumberKeys =[13,48,49,50,51,52,53,54,55,56,57];
 						if (EnterOrNumberKeys.indexOf(e.which)+1) { e.currentTarget.click(); }
-					})
+					});
 			});
 		},
 
