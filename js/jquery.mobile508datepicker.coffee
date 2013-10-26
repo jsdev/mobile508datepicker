@@ -3,7 +3,7 @@
 #	Github: https://github.com/jsdev/mobile508datepicker
 #	MIT License: as is, feel free to fork =)
 #	Tested on: IOS, Android, Surface, Modern Browsers, IE10+, IE9
-# 
+#
 (($) ->
   "use strict"
   $.fn.extend
@@ -14,8 +14,8 @@
         MAX: new Date(new Date().setFullYear(currentDate.getFullYear() + 10)) # years ahead
 
       defaults = null
-      
-      #jshint multistr: true 
+
+      #jshint multistr: true
       $el = $("<section class=\"datetime-picker\" id=\"date-picker\" data-role=\"popup\" data-dismissible=\"false\" data-overlay-theme=\"a\"> \t\t\t\t\t<a href=\"#\" data-rel=\"back\" data-role=\"button\" data-theme=\"a\" data-icon=\"delete\" data-iconpos=\"notext\" class=\"ui-btn-right cancel\">Close</a> \t\t\t\t\t<h1 class=\"ui-title\" role=\"heading\" aria-level=\"1\" class=\"date\">Today</h1> \t\t\t\t\t<div class=\"columns\"><b class=\"month\"><ul></ul></b><b class=\"day\"><ul></ul></b><b class=\"year\"><ul></ul></b></div> \t\t\t\t\t<button id=\"set-btn\" data-theme=\"b\" class=\"ui-btn-hidden\" data-disabled=\"false\">SET</button> \t\t\t\t\t</section>")
       buildEl = ->
         $("body").append $el
@@ -67,7 +67,7 @@
         "Fr "
         "Sa "
       ]
-      
+
       #WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       buildDOM = ->
         i = undefined
@@ -135,7 +135,7 @@
 
       updateHeading = ->
         calcDate = setDate()
-        
+
         #$setBtn.prev('span').find('span').text('Set as: ' + [dateChosen.month+1, dateChosen.day, dateChosen.year].join('/'));
         heading.innerHTML = (if calcDate.toDateString() is currentDate.toDateString() then "Today" else WEEKDAYS[calcDate.getDay()])
 
@@ -356,12 +356,12 @@
       ).on "keydown", (e) ->
         close()  if e.which is 27
 
-      
+
       #Iterate over the current set of matched elements
       @each ->
         $this = $(this)
         $dp = $("#date-picker")
-        
+
         #THIS WILL BUILD IT ONCE, vs. only once foreach in collection
         $dp.length or buildEl()
         $this.on("click", (e) ->
@@ -398,4 +398,4 @@
         $b.scrollTop scrollTop
 
 
-) jQuery
+)(jQuery)
