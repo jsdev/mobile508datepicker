@@ -18,6 +18,7 @@ mobile508datepicker is licensed under the MIT license. [http://opensource.org/li
 
 
 ### Releases
+We use [semver](http://semver.org/) for our releases
 #### [Version 0.1.0](https://github.com/jsdev/mobile508datepicker/releases/tag/0.1.0)
 1. Range menu works now
 2. Adding a rangemenu trying to do a non backbone app first
