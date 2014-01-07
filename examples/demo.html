@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+        <title>Range Menu [Work in progress</title>
+        <meta charset="utf-8"/>
+        <meta name="description" content=""/>
+        <meta name="HandheldFriendly" content="True"/>
+        <meta name="MobileOptimized" content="320"/>
+        <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+        <meta http-equiv="cleartype" content="on"/>
+
+        <link rel="stylesheet" href="../css/jquery.mobile-1.3.2.min.css"/>
+        <link rel="stylesheet" href="../css/jquery.mobile508datepicker.css"/>
+
+    <style>
+        /* These styles is ONLY meant for this demo */
+        .demo-example{
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <section class="demo-example">
+        <p>Example of a range menu you can go back 6 years from today but End range can't come before Start range.</p>
+        <p>Please forgive demo, was ported quickly from a backbone app, where this was a range was view/popup, working on getting a dumbed down, non proprietary version of the backbone app to post as well.
+        </p>
+        <form class="range-menu">
+            <h3>Date Range <span>(up to 6 years)</span></h3>
+            <label for="filter-date-from" class="ui-input-text">From</label>
+            <input type="text" name="startDate" data-theme="b" id="filter-date-from" value="10/24/2011" readonly="" class="ui-input-text ui-body-b">
+
+            <label for="filter-date-to" class="ui-input-text">To</label>
+            <input type="text" name="endDate" data-theme="b" id="filter-date-to" value="10/24/2013" readonly="" class="ui-input-text ui-body-b">
+
+            <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                <button type="button" class="apply-btn ui-btn-hidden" id="range-apply-btn" data-role="button" data-theme="b" data-mini="true" data-disabled="false">Apply</button>
+            </div>
+        </form>
+    </section>
+        <script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script src="../js/jquery.scroll.start.stop.js"></script>
+        <script src="../js/jquery.mobile508datepicker.js"></script>
+        <script src="../js/demo1.js"></script>
+
+</body>
+</html>
