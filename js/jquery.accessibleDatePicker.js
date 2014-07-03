@@ -288,6 +288,7 @@
                     $.data(this, 'scrollTimer', setTimeout(function() {
                         scrolled(currentTarget, true);
                     }, 500));
+                    checkDays();
                 });
             $el.find('.day')
                 .on('scrollstop', function (e) {
@@ -306,6 +307,7 @@
                     $.data(this, 'scrollTimer', setTimeout(function() {
                         scrolled(currentTarget, true);
                     }, 500));
+                    checkDays();
                 });
 
             $el
